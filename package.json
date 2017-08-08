@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.test.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test.js",
+    "share": "npm version patch && git push && npm publish"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,12 @@
   "bugs": {
     "url": "https://github.com/timelaps/n/issues"
   },
-  "homepage": "https://github.com/timelaps/n#readme"
+  "homepage": "https://github.com/timelaps/n#readme",
+  "devDependencies": {
+    "@timelaps/batterie": "^1.0.70"
+  },
+  "dependencies": {
+    "@timelaps/fn": "^1.0.2",
+    "@timelaps/is": "^1.0.8"
+  }
 }

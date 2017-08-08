@@ -1,6 +1,5 @@
 var b = require('@timelaps/batterie');
 var keys = require('.');
-var create = require('../create');
 b.describe('keys', function () {
     b.expect(keys).toBeFunction();
     b.it('gathers keys using the most optimal route', function (t) {
