@@ -1,11 +1,6 @@
-var isArrayLike = require('@timelaps/is/array-like');
+var u, isArrayLike = require('@timelaps/is/array-like'),
+    lastIndex = require('../../../last/key'),
+    forEachEndBase = require('../../../from/to');
 module.exports = function forEach(array, fn) {
-    if (!isArrayLike(array)) {
-        return;
-    }
-    for (var i = 0; i < array.length; i++) {
-        if (fn(array[i], i, array)) {
-            return i;
-        }
-    }
+    return isArrayLike(array) ? forEachEndBase(array, fn, 0, lastIndex(array), 1) : u;
 };
