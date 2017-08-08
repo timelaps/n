@@ -12,5 +12,6 @@ module.exports = {
     keysNative: require('./keys/native'),
     get: require('./get'),
     set: require('./set'),
-    has: require('./has')
+    has: require('./has'),
+    del: require('./del')
 };
