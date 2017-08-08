@@ -12,3 +12,4 @@ require('./keys/index.test');
 require('./keys/native/index.test');
 require('./keys/own/index.test');
 require('./set/index.test');
+require('./values/index.test');

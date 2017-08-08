@@ -5,9 +5,10 @@ var native = require('../../keys/native');
 var isObject = require('@timelaps/is/object');
 var second = require('@timelaps/fn/second');
 var bindTo = require('@timelaps/fn/bind/to');
-module.exports = native ? function (obj) {
+var isPointer = require('@timelaps/is/pointer');
+module.exports = native ? function keysOwn(obj) {
     // prevent throwing
-    return isObject(obj) ? own(obj) : [];
+    return isPointer(obj) ? native(obj) : [];
 } : own;
 
 function own(obj) {
