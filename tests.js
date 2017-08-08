@@ -1,0 +1,9 @@
+require('./collect-non-enum-props/index.test');
+require('./for/in/has/index.test');
+require('./for/in/index.test');
+require('./for/own/index.test');
+require('./keys/all/index.test');
+require('./keys/generator/index.test');
+require('./keys/index.test');
+require('./keys/native/index.test');
+require('./keys/own/index.test');
