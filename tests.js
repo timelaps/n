@@ -1,6 +1,3 @@
-require('./base/for/value-check/index.test');
-require('./base/from/to/end/index.test');
-require('./base/from/to/index.test');
 require('./collect-non-enum-props/index.test');
 require('./first/index.test');
 require('./first/is/index.test');
