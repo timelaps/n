@@ -1,7 +1,4 @@
+var eachGenerator = require('@timelaps/fn/each');
+var iterate = require('../../iterate/own');
 var forEach = require('../each');
-var keys = require('../../keys');
-module.exports = function forOwn(object, fn) {
-    forEach(keys(object), function (key) {
-        fn(object[key], key, object);
-    });
-};
+module.exports = eachGenerator(iterate, forEach);

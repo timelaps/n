@@ -1,18 +1,18 @@
-var forIn = require('.');
+var forOwn = require('.');
 var b = require('@timelaps/batterie');
-b.describe('forIn', function () {
+b.describe('forOwn', function () {
     Class.prototype = {
         one: 0,
         two: 2,
         three: 3
     };
-    b.expect(forIn).toBeFunction();
-    b.expect(forIn()).toBeUndefined();
+    b.expect(forOwn).toBeFunction();
+    b.expect(forOwn()).toBeUndefined();
     b.it('iterates over objects and any available keys on the prototype', function (t) {
         var previous = 0;
         var values = [];
         var indexes = [];
-        forIn(new Class(), function (value, index) {
+        forOwn(new Class(), function (value, index) {
             values.push(value);
             indexes.push(index);
         });
