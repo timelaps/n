@@ -1,6 +1,6 @@
 var iterateIn = require('.');
 var b = require('@timelaps/batterie');
-var forEach = require('@timelaps/n/for/each');
+var forEach = require('../../for/each');
 b.describe('iterateIn', function () {
     b.expect(iterateIn).toBeFunction();
     b.expect(iterateIn()).toBeFunction();

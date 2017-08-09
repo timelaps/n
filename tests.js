@@ -1,4 +1,5 @@
 require('./collect-non-enum-props/index.test');
+require('./contains/index.test');
 require('./first/index.test');
 require('./first/is/index.test');
 require('./for/each/base/index.test');
@@ -15,6 +16,9 @@ require('./get/index.test');
 require('./get/shallow/index.test');
 require('./has/shallow/index.test');
 require('./index.test');
+require('./iterate/all/index.test');
+require('./iterate/index.test');
+require('./iterate/own/index.test');
 require('./keys/all/index.test');
 require('./keys/generator/index.test');
 require('./keys/index.test');

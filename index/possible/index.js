@@ -1,0 +1,7 @@
+module.exports = possibleIndex;
+var MAX_ARRAY_INDEX = require('@timelaps/constants/max-array-index');
+var clamp = require('@timelaps/number/clamp');
+
+function possibleIndex(n) {
+    return clamp(n, 0, MAX_ARRAY_INDEX);
+}

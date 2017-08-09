@@ -24,6 +24,7 @@
   "dependencies": {
     "@timelaps/fn": "^1.0.2",
     "@timelaps/is": "^1.0.8",
+    "@timelaps/number": "^1.0.0",
     "@timelaps/to": "^1.0.4"
   }
 }
