@@ -1,5 +1,5 @@
 var checkCollectNonEnumProps = require('../../collect-non-enum-props/check');
-var forInHas = require('@timelaps/polyfill/for/in/has');
+var forInHas = require('@timelaps/hacks/for/in/has');
 var native = require('../../keys/native');
 var isObject = require('@timelaps/is/object');
 var second = require('@timelaps/fn/second');

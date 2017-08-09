@@ -1,5 +1,5 @@
 var checkCollectNonEnumProps = require('../../collect-non-enum-props/check');
-var forIn = require('@timelaps/polyfill/for/in');
+var forIn = require('@timelaps/hacks/for/in');
 var second = require('@timelaps/fn/second');
 var bindTo = require('@timelaps/fn/bind/to');
 module.exports = function (obj) {
