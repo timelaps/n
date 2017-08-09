@@ -1,8 +1,6 @@
 module.exports = {
     forEach: require('./for/each'),
     forEachRight: require('./for/each/right'),
-    forIn: require('./for/in'),
-    forInHas: require('./for/in/has'),
     forOwn: require('./for/own'),
     forOwnRight: require('./for/own/right'),
     forEachEnd: require('./for/each/end'),

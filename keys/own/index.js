@@ -1,6 +1,5 @@
-var has = require('../../has');
 var checkCollectNonEnumProps = require('../../collect-non-enum-props/check');
-var forOwn = require('../../for/in/has');
+var forInHas = require('@timelaps/polyfill/for/in/has');
 var native = require('../../keys/native');
 var isObject = require('@timelaps/is/object');
 var second = require('@timelaps/fn/second');
@@ -13,6 +12,6 @@ module.exports = native ? function keysOwn(obj) {
 
 function own(obj) {
     var keys = [];
-    forOwn(obj, second(bindTo(keys.push, keys)));
+    forInHas(obj, second(bindTo(keys.push, keys)));
     return checkCollectNonEnumProps(obj, keys);
 }
