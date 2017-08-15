@@ -1,5 +1,6 @@
-module.exports = function fromToEnd(values, callback, _start, _end, _step) {
-    var limit, counter, value, step = _step || 1,
+module.exports = function fromToEnd(callback, values_, _start, _end, _step) {
+    var limit, counter, value, continues = values_,
+        step = _step || 1,
         end = _end,
         start = _start,
         goingDown = step < 0,
@@ -9,7 +10,7 @@ module.exports = function fromToEnd(values, callback, _start, _end, _step) {
     }
     limit = ((goingDown ? start - end : end - start)) / Math.abs(step || 1);
     for (counter = 0; index >= 0 && counter <= limit; counter++) {
-        if (callback(values[index], index, values)) {
+        if ((continues = callback(index, continues))) {
             return index;
         }
         index += step;

@@ -6,30 +6,30 @@ b.describe('fromToEnd', function () {
         t.expect(fromToEnd).toBeFunction();
     });
     b.it('can iterate through lists', function (t) {
-        fromToEnd(numbers, function (number, index, list) {
-            t.expect(number).toBe(list[index]);
-        }, 0, numbers.length - 1, 1);
+        fromToEnd(function (index) {
+            t.expect(index).toBe(numbers[index] - 1);
+        }, numbers, 0, numbers.length - 1, 1);
     }, numbers.length);
     b.it('requires start and end to be passed to work properly', function (t) {
         var res1 = fromToEnd();
-        var res2 = fromToEnd(numbers, function (number) {
-            return number === 3;
-        }, 0, numbers.length - 1, 1);
+        var res2 = fromToEnd(function (index) {
+            return numbers[index] === 3;
+        }, numbers, 0, numbers.length - 1, 1);
         t.expect(res1).toBe(-1);
         t.expect(res2).toBe(2);
     }, 2);
     b.it('can stop its iteration when a truthy value is returned', function (t) {
-        var result = fromToEnd(numbers, function (number, index, list) {
-            return number === 3;
-        }, 0, numbers.length - 1, 1);
+        var result = fromToEnd(function (index) {
+            return numbers[index] === 3;
+        }, numbers, 0, numbers.length - 1, 1);
         t.expect(result).toBe(2);
     });
     b.it('can stop its iteration with the range start and end values', function (t) {
         var counter = 0;
-        var result = fromToEnd(numbers, function (number, index, list) {
+        var result = fromToEnd(function (index) {
             counter++;
-            return number === 5;
-        }, 1, 3, 1);
+            return numbers[index] === 5;
+        }, numbers, 1, 3, 1);
         t.expect(counter).toBe(3);
         t.expect(result).toBe(-1);
     }, 2);

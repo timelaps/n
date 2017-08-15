@@ -1,9 +1,10 @@
 var toInteger = require('@timelaps/to/integer');
-module.exports = function fromTo(values, runner, _start, _end, step) {
+module.exports = function fromTo(runner, values_, _start, _end, step) {
     if (!step) {
         return;
     }
-    var goingDown = step < 0,
+    var values = values_,
+        goingDown = step < 0,
         end = _end,
         start = _start,
         index = start,
@@ -12,28 +13,29 @@ module.exports = function fromTo(values, runner, _start, _end, step) {
         iterations = toInteger(distance / 8);
     if (leftover > 0) {
         do {
-            runner(values[index], index, values);
+            values = runner(index, values);
             index += step;
         } while (--leftover > 0);
     }
     if (iterations) {
         do {
-            runner(values[index], index, values);
+            values = runner(index, values);
             index += step;
-            runner(values[index], index, values);
+            values = runner(index, values);
             index += step;
-            runner(values[index], index, values);
+            values = runner(index, values);
             index += step;
-            runner(values[index], index, values);
+            values = runner(index, values);
             index += step;
-            runner(values[index], index, values);
+            values = runner(index, values);
             index += step;
-            runner(values[index], index, values);
+            values = runner(index, values);
             index += step;
-            runner(values[index], index, values);
+            values = runner(index, values);
             index += step;
-            runner(values[index], index, values);
+            values = runner(index, values);
             index += step;
         } while (--iterations > 0);
     }
+    return values;
 };

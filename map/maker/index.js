@@ -10,7 +10,7 @@ module.exports = function mapMaker(iterator, iterable, returnBaseType_) {
                 return item && item[iteratee];
             } : iteratee;
         if (objs) {
-            iterator(objs, iterable(collection, iterates, collection.length === 0));
+            iterator(objs, iterable(collection, iterates, collection.length === 0, objs));
         }
         return collection;
     };

@@ -13,6 +13,7 @@ var object = {
     '2': 3
 };
 b.describe('mapValuesRight', function () {
+    // debugger;
     b.it('iterates', [
         ['over arrays', mapValuesRight(numbers, minus1), [2, 1, 0]],
         ['over arraylike objects', mapValuesRight(numbersLike, minus1), [2, 1, 0]],

@@ -6,21 +6,24 @@ b.describe('fromTo', function (t) {
         t.expect(fromTo).toBeFunction();
     });
     b.it('can iterate through lists', function (t) {
-        fromTo(numbers, function (number, index, list) {
-            t.expect(number).toBe(list[index]);
-        }, 0, numbers.length - 1, 1);
+        var counter = 0;
+        fromTo(function (index, list) {
+            t.expect(index).toBe(counter++);
+            return list;
+        }, numbers, 0, numbers.length - 1, 1);
     }, numbers.length);
     b.it('requires start and end to be passed to work properly', function (t) {
-        var result = fromTo(numbers, function () {
+        var result = fromTo(function () {
+            // would err
             t.expect(number).toBe(list[index]);
-        });
+        }, numbers);
         t.expect(result).toBeUndefined();
     });
     b.it('cannot stop its iteration when a truthy value is returned', function (t) {
-        var result = fromTo(numbers, function (number, index, list) {
-            t.expect(number).toBe(list[index]);
-            return number === 3;
-        }, 0, numbers.length - 1, 1);
-        t.expect(result).toBeUndefined();
+        var result = fromTo(function (index, list) {
+            t.expect(index).toBe(list[index] - 1);
+            return list;
+        }, numbers, 0, numbers.length - 1, 1);
+        t.expect(result).toBe(numbers);
     }, numbers.length + 1);
 });

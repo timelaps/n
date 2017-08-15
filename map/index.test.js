@@ -13,6 +13,7 @@ var object = {
     '2': 3
 };
 b.describe('map', function () {
+    debugger;
     b.it('iterates', [
         ['over arrays', map(numbers, multiplyBy2), [2, 4, 6]],
         ['over arraylike objects', map(numbersLike, multiplyBy2), [2, 4, 6]],

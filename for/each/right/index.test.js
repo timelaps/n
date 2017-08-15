@@ -1,6 +1,6 @@
 var b = require('@timelaps/batterie');
 var forEachEndRight = require('.');
-b.describe('forEachEndRight', function () {
+b.describe('forEachRight', function () {
     var numbers = [1, 2, 3, 4, 5];
     b.it('should be a function', function (t) {
         t.expect(forEachEndRight).toBeFunction();

@@ -6,24 +6,25 @@ b.describe('baseForEach', function (t) {
         t.expect(baseForEach).toBeFunction();
     });
     b.it('can iterate through lists', function (t) {
-        baseForEach(numbers, function (number, index, list) {
-            t.expect(number).toBe(list[index]);
-        });
+        baseForEach(function (index, list) {
+            t.expect(list[index]).notToBeUndefined();
+            return list;
+        }, numbers);
     }, numbers.length);
-    b.it('never returns a value', function (t) {
-        var result = baseForEach(numbers, function (number, index, list) {
+    b.it('returns its memo', function (t) {
+        var result = baseForEach(function (index) {
             return true;
-        });
-        t.expect(result).toBeUndefined();
+        }, numbers);
+        t.expect(result).toBeTrue();
     });
     b.it('does not work on objects', function (t) {
         var object = {
             one: 1,
             two: 2
         };
-        baseForEach(object, function (number, index, list) {
+        baseForEach(function (number, index, list) {
             t.expect(true).toBe(false);
-        });
+        }, object);
         t.expect(object).toBeObject();
     });
 });
