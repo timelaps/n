@@ -8,7 +8,7 @@ module.exports = function fromTo(runner, values_, _start, _end, step) {
         end = _end,
         start = _start,
         index = start,
-        distance = (goingDown ? start - end : end - start) + 1,
+        distance = ((goingDown ? start - end : end - start) + 1) / step,
         leftover = distance % 8,
         iterations = toInteger(distance / 8);
     if (leftover > 0) {
