@@ -9,7 +9,6 @@ module.exports = {
     keys: require('./keys'),
     keysAll: require('./keys/all'),
     keysOwn: require('./keys/own'),
-    keysGenerator: require('./keys/generator'),
     keysNative: require('./keys/native'),
     get: require('./get'),
     set: require('./set'),
