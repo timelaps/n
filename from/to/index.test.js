@@ -7,7 +7,6 @@ b.describe('fromTo', function (t) {
     });
     b.it('can iterate through lists', function (t) {
         var counter = 0;
-        debugger;
         fromTo(function (index, list) {
             t.expect(index).toBe(counter++);
             return list;
