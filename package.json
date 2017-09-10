@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@timelaps/constants": "^1.0.5",
-    "@timelaps/fn": "^1.0.15",
+    "@timelaps/fn": "^1.0.16",
     "@timelaps/hacks": "^1.0.5",
     "@timelaps/is": "^1.0.14",
     "@timelaps/number": "^1.0.3",
