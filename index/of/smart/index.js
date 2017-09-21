@@ -1,6 +1,6 @@
 module.exports = smartIndexOf;
 var sortedIndexOf = require('../sorted'),
-    indexOf = require('..'),
+    indexOf = require('../'),
     isTrue = require('@timelaps/is/true');
 
 function smartIndexOf(array, item, _from, _to) {
