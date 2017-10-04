@@ -1,3 +1,11 @@
+var matches = require('./matches');
+matches.property = require('./matches/property');
+matches.object = require('./matches/object');
+matches.binary = require('./matches/binary');
+var keys = require('./keys');
+keys.all = require('./keys/all');
+keys.own = require('./keys/own');
+keys.native = require('./keys/native');
 module.exports = {
     forEach: require('./for/each'),
     forEachRight: require('./for/each/right'),
@@ -7,9 +15,7 @@ module.exports = {
     forEachEndRight: require('./for/each/end/right'),
     collectNonEnumProps: require('./collect-non-enum-props'),
     keys: require('./keys'),
-    keysAll: require('./keys/all'),
-    keysOwn: require('./keys/own'),
-    keysNative: require('./keys/native'),
+    matches: require('./matches'),
     get: require('./get'),
     set: require('./set'),
     has: require('./has'),
