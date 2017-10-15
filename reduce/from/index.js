@@ -1,12 +1,13 @@
 var reduction = require('../reduction');
 var returnsTrue = require('@timelaps/returns/true');
-var returnsFirst = require('@timelaps/returns/first');
+var returnsSecond = require('@timelaps/returns/second');
 module.exports = reduceFrom;
 
 function reduceFrom(generate, get, transform_) {
-    var transform = transform_ || returnsFirst;
+    // no object passed back
+    var transform = transform_ || returnsSecond;
     return function reducer(obj, iteratee, memo) {
-        return reduction(generate(obj), get || access, transform(iteratee), memo, arguments.length < 3);
+        return reduction(generate(obj), get || access, transform(obj, iteratee), memo, arguments.length < 3);
 
         function access(key) {
             return obj[key];
