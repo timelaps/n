@@ -1,5 +1,6 @@
 require('./collect-non-enum-props/index.test');
 require('./contains/index.test');
+require('./filter/index.test');
 require('./first/index.test');
 require('./first/is/index.test');
 require('./for/each/base/index.test');
@@ -51,7 +52,7 @@ require('./matches/object/index.test');
 require('./matches/property/index.test');
 require('./nth/index.test');
 require('./nth/is/index.test');
-require('./reduce/index.test');
 require('./reduce/from/index.test');
+require('./reduce/index.test');
 require('./set/index.test');
 require('./values/index.test');
