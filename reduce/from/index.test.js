@@ -4,7 +4,7 @@ b.describe('make', function () {
     b.expect(make).toBeFunction();
     b.expect(make).toReturnFunction();
     b.it('creates a reducer from a direction', function (t) {
-        var reducer = make(1);
+        var reducer = make(false);
         t.expect(reducer([1, 2, 3, 4], function (memo, value) {
             return memo + value;
         })).toBe(10);

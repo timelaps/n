@@ -52,5 +52,6 @@ require('./matches/property/index.test');
 require('./nth/index.test');
 require('./nth/is/index.test');
 require('./reduce/index.test');
+require('./reduce/from/index.test');
 require('./set/index.test');
 require('./values/index.test');
