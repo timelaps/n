@@ -1,20 +1,16 @@
+var reduction = require('.');
 var b = require('@timelaps/batterie');
-var reduce = require('.');
-var numbers = [1, 2, 3, 4];
-b.describe('reduce', function () {
-    b.it('is a function', b.curry(reduce, 'toBeFunction'));
-    b.it('iterates over arrays', b.curry(reduce(numbers, function (memo, number) {
-        return number + memo;
-    }, 0), 'toBe', 10));
-    b.it('does not change the memo if nothing is returned', function (t) {
-        t.expect(reduce(numbers, function () {}, 5)).toBeUndefined();
-    });
-    b.it('iterates from the left', function (t) {
+var generate = require('@timelaps/fn/generator/indices');
+b.describe('reduction', function () {
+    b.expect(reduction).toBeFunction();
+    b.it('is a generalized reduce', function (t) {
         var list = [];
-        var result = reduce(numbers, function (memo, number) {
-            list.push(number);
-            return number + memo;
-        }, 0);
-        t.expect(list).toEqual(numbers);
-    });
+        var array = [1, 2, 3, 4];
+        var generator = generate(array);
+        t.expect(reduction(generator, array, function (memo, value) {
+            list.push(value);
+            return memo + value;
+        }, 0)).toBe(10);
+        t.expect(list.sort()).toEqual(array);
+    }, 2);
 });

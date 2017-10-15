@@ -13,7 +13,7 @@ module.exports = function (obj, keys) {
     }
     while (nonEnumIdx--) {
         prop = nonEnumerableProps[nonEnumIdx];
-        if (prop in obj && obj[prop] !== proto[prop] && !contains(keys, prop)) {
+        if (prop in obj && obj[prop] !== proto[prop] && !contains(null, keys, prop)) {
             keys.push(prop);
         }
     }

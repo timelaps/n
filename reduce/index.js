@@ -1,7 +1,17 @@
-var toArray = require('@timelaps/to/array');
-var isNil = require('@timelaps/is/nil');
-var isArrayLike = require('@timelaps/is/array-like');
-module.exports = [].reduce ? function (array_, fn, memo) {
-    var array = isArrayLike(array_) ? toArray(array_) : [];
-    return arguments.length >= 3 ? array.reduce(fn, memo) : array.reduce(fn);
-} : require('./make')(1, isArrayLike);
+var isUndefined = require('@timelaps/is/undefined');
+module.exports = reduction;
+
+function reduction(generator, accessFrom, iteratee, memo_, startsAt1) {
+    var next, key, memo = memo_;
+    if (startsAt1) {
+        if (isUndefined((next = generator.next()).value)) {
+            return memo;
+        } else {
+            memo = accessFrom[next];
+        }
+    }
+    while (!isUndefined((key = (next = generator.next()).value))) {
+        memo = iteratee(memo, accessFrom[key], key, accessFrom);
+    }
+    return memo;
+}

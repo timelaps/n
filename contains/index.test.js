@@ -7,10 +7,10 @@ var obj4 = {};
 var objects = [obj1, null, obj2, NaN, 5, obj1, obj4, obj3];
 b.describe('contains', function () {
     b.it('checks arrays and array like objects', [
-        ['for objects', contains(objects, obj2), true],
-        ['any value', contains(objects, null), true],
-        ['NaN included', contains(objects, NaN), true],
-        ['even array like objects', contains({
+        ['for objects', contains(null, objects, obj2), true],
+        ['any value', contains(null, objects, null), true],
+        ['NaN included', contains(null, objects, NaN), true],
+        ['even array like objects', contains(null, {
             '0': 5,
             '1': obj1,
             '2': obj2,
