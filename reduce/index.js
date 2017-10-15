@@ -11,7 +11,7 @@ function reduction(generator, get, iteratee, memo_, startsAt1) {
         }
     }
     while (!isUndefined((value = (next = generator.next()).value))) {
-        memo = iteratee(memo, get(value));
+        memo = iteratee(memo, get(value), value);
     }
     return memo;
 }
