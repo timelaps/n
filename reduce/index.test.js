@@ -7,7 +7,9 @@ b.describe('reduction', function () {
         var list = [];
         var array = [1, 2, 3, 4];
         var generator = generate(array);
-        t.expect(reduction(generator, array, function (memo, value) {
+        t.expect(reduction(generator, function (index) {
+            return array[index];
+        }, function (memo, value) {
             list.push(value);
             return memo + value;
         }, 0)).toBe(10);

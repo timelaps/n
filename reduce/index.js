@@ -1,17 +1,17 @@
 var isUndefined = require('@timelaps/is/undefined');
 module.exports = reduction;
 
-function reduction(generator, accessFrom, iteratee, memo_, startsAt1) {
-    var next, key, memo = memo_;
+function reduction(generator, get, iteratee, memo_, startsAt1) {
+    var next, value, memo = memo_;
     if (startsAt1) {
-        if (isUndefined((next = generator.next()).value)) {
+        if (isUndefined((value = (next = generator.next()).value))) {
             return memo;
         } else {
-            memo = accessFrom[next];
+            memo = get(value);
         }
     }
-    while (!isUndefined((key = (next = generator.next()).value))) {
-        memo = iteratee(memo, accessFrom[key], key, accessFrom);
+    while (!isUndefined((value = (next = generator.next()).value))) {
+        memo = iteratee(memo, get(value));
     }
     return memo;
 }
